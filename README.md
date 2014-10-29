@@ -89,11 +89,11 @@ You must install phantom from [http://phantomjs.org/download.html](http://phanto
 ### 5.2 example
 
 ```
-capture --dir . --output xx.pn --url http://ju.taobao.com -size 1920x800 -dom-hook ju-footer -screen-timer 6000
+capture --dir . --output xx.png --url http://ju.taobao.com -size 1920x800 -dom-hook ju-footer -screen-timer 6000
 ```
 
 or
 
 ```
-capture -d . -o xx.pn -u http://ju.taobao.com -s 1920x800 -dh ju-footer -s 6000
+capture -d . -o xx.png -u http://ju.taobao.com -s 1920x800 -dh ju-footer -s 6000
 ```

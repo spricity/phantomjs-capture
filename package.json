@@ -1,0 +1,21 @@
+{
+    "name": "phantomjs-capture",
+    "description": "Captures Screenshots using Phantom.js",
+    "version": "0.1.0",
+    "author": "spricity <spricity@gmail.com>",
+    "dependencies": {
+        "node-phantom-simple": "1.2.x",
+        "mkdirp": "",
+        "commander": "",
+        "colors": ""
+    },
+    "devDependencies": {
+    },
+    "keywords": ["capture", "phantomjs", "screenshot", "web", "website"],
+    "repository": "git@github.com:spricity/phantomjs-capture.git",
+    "main": "index",
+    "bin": { "capture": "./bin/capture" },
+    "scripts": {
+    },
+    "engines": { "node":">= 0.8.0" }
+}

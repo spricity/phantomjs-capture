@@ -9,7 +9,7 @@ var colors = require('colors');
 var startTime = new Date().getTime();
 var Capture = function(params, callback){
     if(!params.url){
-        util.error('URL不存在'.bold.red);
+        util.error('请指定URL'.bold.red);
         return;
     }
     var dir = params.dir || '.';

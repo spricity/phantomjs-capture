@@ -32,7 +32,7 @@ program
     .parse(process.argv);
 
 
-var url = program.url || 'http://ju.taobao.com';
+var url = program.url || '';
 var dir = program.dir || '.';
 
 var param = {};

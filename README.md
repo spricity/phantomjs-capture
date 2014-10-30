@@ -1,6 +1,6 @@
 # phantomjs-capture for NodeJS
 
-Simple and lightweight HTML to image capture using Node and PhantomJS.
+Simple and lightweight HTML to image capture and html using Node and PhantomJS.
 
 ## 1、Installation
 
@@ -24,8 +24,10 @@ var capture = require('phantomjs-capture');
 
 capture(options, function(err, result) {
 
-    console.log(result.fullPath);
-    console.log(result.fileName);
+    console.log(result.fullPNGPath);        // PNG PATH
+    console.log(result.filePNGName);        // PNG File Name
+    console.log(result.fileHTMLPath);       // HTML PATH
+    console.log(result.fileHTMLName);       // HTML File Name
 });
 
 ```

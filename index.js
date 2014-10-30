@@ -2,7 +2,7 @@
 
 /*!
  * Capture - simple screenshot tool using PhantomJS
- * Copyright(c) 2013 Mike Moulton <mike@meltmedia.com>
+ * Copyright(c) 2014 spricity <spricity@gmail.com>
  * MIT Licensed
  */
 var util = require('util');
@@ -10,11 +10,11 @@ var begin = new Date();
 var program = require('commander');
 var helpInfo = {
     'dir':['输出文件目录。eg: -d ./','Directory'],
-    'output':['输出文件名。eg: -o xxx.png','File name'],
+    'output':['输出文件名。eg: -o xxx','File name'],
     'url':['需要截图的页面的URL。eg: -u http://ju.taobao.com', 'Remote URL'],
     'size':['需要截图的页面的宽度x高度, eg: -s 800x600', 'Captrue width x height, eg: -size 800x600'],
     'screenTimer':['滚屏的时间，如果该时间太短，可能造成一些异步加载的数据未返回时，页面出现空白等，单位:ms。 eg: -t 10000', 'Screen Timer'],
-    'domHook':['DOM上的ID节点，表示此元素出现后将停止截屏，如 <div id="footer"></div>， -hook footer', 'DOM Hook'],
+    'domHook':['DOM上的ID节点，表示此元素出现后将停止截屏，如 <div id="footer"></div>， -dh footer', 'DOM Hook'],
     'help':['帮助','Help']
 };
 

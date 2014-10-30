@@ -37,14 +37,33 @@ var Capture = function(params, callback){
                     var timeMinute = parseInt(diffTime / 1000 / 60, 10);
                     var timeSecond = (diffTime - timeMinute *60 * 1000) / 1000;
                     util.log('Real time spend: ' + timeMinute + 'm ' + timeSecond + 's' );
-                    page.render(real_output, function (err) {
+
+                    var tmpFilePath = real_output.split('.png');
+                    var filePath = tmpFilePath[0];
+                    var tmpFileName = output.split('.png');
+                    var fileName = tmpFileName[0];
+
+                    var html = times.html.replace('charset="gbk"', 'charset="utf-8"', times.html);
+
+
+                    fs.open(filePath + '.html',"w",0644,function(e,fd){
+                        if(e) throw e;
+                        fs.write(fd, html, 0, 'utf8', function(e){
+                            if(e) throw e;
+                            fs.closeSync(fd);
+                        });
+                    });
+
+                    page.render(filePath + '.png', function (err) {
                         if(err){
                             callback && callback(err, {});
                         }else{
                             util.log("截图成功：".green + "，" + "图片保存在：".gray + real_output.underline.cyan)
                             callback && callback(null, {
-                                fullPath: real_output,
-                                fileName: output
+                                fullPNGPath: filePath + '.png',
+                                filePNGName: fileName + '.png',
+                                fullHTMLPath: filePath + '.html',
+                                fileHTMLPath: fileName + '.html'
                             });
                         }
                         ph.exit();
@@ -105,6 +124,8 @@ var Capture = function(params, callback){
                                     window.callPhantom({
                                         status: 'end',
                                         top: top,
+                                        html: '<!DOCTYPE html><html>'+document.documentElement.innerHTML+'</html>',
+                                        doctype: document.doctype,
                                         se: se
                                     });
                                 }else{

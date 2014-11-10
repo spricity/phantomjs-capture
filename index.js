@@ -66,8 +66,7 @@ var init = function(config, callback){
             phantomPath = phantomPath.replace('\n', '', phantomPath);
             Capture(param, callback, phantomPath);
         }else{
-            util.log(err);
-            util.log(stderr);
+            Capture(param, callback);
         }
     });
 

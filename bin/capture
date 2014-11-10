@@ -55,8 +55,7 @@ child = exec('which phantomjs', function(err, phantomPath, stderr){
         phantomPath = phantomPath.replace('\n', '', phantomPath);
         capture(param, function(){}, phantomPath);
     }else{
-        util.log(err);
-        util.log(stderr);
+        capture(param);
     }
 })
 

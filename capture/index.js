@@ -26,6 +26,8 @@ var Capture = function(params, callback, phantomPath){
         mkdirp.sync(resolve_path, {mode: 0777});
     }
 
+    phantomPath = params.phantomPath || phantomPath || 'phantomjs';
+
     phantom.create(function(err,ph) {
         return ph.createPage(function(err,page) {
             page.onCallback = function(times) {

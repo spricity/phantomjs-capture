@@ -86,16 +86,17 @@ You must install phantom from [http://phantomjs.org/download.html](http://phanto
     -u, --url [string]            需要截图的页面的URL。eg: -u http://ju.taobao.com
     -s, --size [string]           需要截图的页面的宽度x高度, eg: -s 800x600
     -dh, --dom-hook [string]      DOM上的ID节点，表示此元素出现后将停止截屏，如 <div id="footer"></div>， -hook footer
+    -phantomPath, --phantomPath [string] phantomjs的路径， -phantomPath /usr/local/bin/phantomjs
     -t, --screen-timer [integer]  滚屏的时间，如果该时间太短，可能造成一些异步加载的数据未返回时，页面出现空白等，单位:ms。 eg: -t 10000
     
 ### 5.2 example
 
 ```
-capture --dir . --output xx.png --url http://ju.taobao.com -size 1920x800 -dom-hook ju-footer -screen-timer 6000
+capture --dir . --output xx --url http://ju.taobao.com -size 1920x800 -dom-hook ju-footer -screen-timer 6000 -phantomPath /usr/local/bin/phantomjs
 ```
 
 or
 
 ```
-capture -d . -o xx.png -u http://ju.taobao.com -s 1920x800 -dh ju-footer -s 6000
+capture -d . -o xx -u http://ju.taobao.com -s 1920x800 -dh ju-footer -s 6000
 ```

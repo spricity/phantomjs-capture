@@ -15,6 +15,7 @@ var helpInfo = {
     'size':['需要截图的页面的宽度x高度, eg: -s 800x600', 'Captrue width x height, eg: -size 800x600'],
     'screenTimer':['滚屏的时间，如果该时间太短，可能造成一些异步加载的数据未返回时，页面出现空白等，单位:ms。 eg: -t 10000', 'Screen Timer'],
     'domHook':['DOM上的ID节点，表示此元素出现后将停止截屏，如 <div id="footer"></div>， -dh footer', 'DOM Hook'],
+    'phantomPath':['phantomjs的路径，eg: -phantomPath /usr/local/bin/phantomjs', 'phantomjs path in your system'],
     'help':['帮助','Help']
 };
 var exec = require('child_process').exec,
@@ -31,6 +32,7 @@ program
     .option('-s, --size [string]', helpInfo.size[langIndex])
     .option('-dh, --dom-hook [string]', helpInfo.domHook[langIndex])
     .option('-t, --screen-timer [integer]', helpInfo.screenTimer[langIndex])
+    .option('-phantomPath, --phantomPath [string]', helpInfo.phantomPath[langIndex])
     .parse(process.argv);
 
 
@@ -44,6 +46,7 @@ param.output = program.output || '';
 param.size = program.size || '';
 param.screenTimer = program.screenTimer || 1000;
 param.domHook = program.domHook || '';
+param.phantomPath = program.phantomPath || '';
 
 var Capture = require('./capture/index');
 

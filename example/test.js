@@ -1,5 +1,6 @@
-var capture = require('phantomjs-capture');
+//var capture = require('phantomjs-capture');
 
+var capture = require('../index.js');
 capture({
     dir: '.',
     output: 'xx2',

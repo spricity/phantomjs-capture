@@ -6,8 +6,9 @@ var mkdirp = require('mkdirp');
 var crypto = require('crypto');
 var colors = require('colors');
 
+
 var startTime = new Date().getTime();
-var Capture = function(params, callback){
+var Capture = function(params, callback, phantomPath){
     if(!params.url){
         util.error('请指定URL'.bold.red);
         return;
@@ -24,7 +25,6 @@ var Capture = function(params, callback){
     if (!fs.existsSync(resolve_path)) {
         mkdirp.sync(resolve_path, {mode: 0777});
     }
-
 
     phantom.create(function(err,ph) {
         return ph.createPage(function(err,page) {
@@ -187,6 +187,8 @@ var Capture = function(params, callback){
 
 
         });
+    },{
+        phantomPath: phantomPath
     });
 }
 

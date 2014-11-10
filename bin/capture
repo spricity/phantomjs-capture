@@ -44,7 +44,20 @@ param.screenTimer = program.screenTimer || 1000;
 param.domHook = program.domHook || '';
 
 var capture = require('../capture/index');
-capture(param);
+var exec = require('child_process').exec,
+    child;
+
+child = exec('which phantomjs', function(err, phantomPath, stderr){
+    if(!err){
+        phantomPath = phantomPath.replace('\n', '', phantomPath);
+        capture(param, function(){}, phantomPath);
+    }else{
+        util.log(err);
+        util.log(stderr);
+    }
+})
+
+
 
 var end = new Date();
 var spend = end.getTime()-begin.getTime();

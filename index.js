@@ -17,6 +17,8 @@ var helpInfo = {
     'domHook':['DOM上的ID节点，表示此元素出现后将停止截屏，如 <div id="footer"></div>， -dh footer', 'DOM Hook'],
     'help':['帮助','Help']
 };
+var exec = require('child_process').exec,
+    child;
 
 
 var LANG = process.env.LANG || 'zh';
@@ -55,7 +57,17 @@ var init = function(config, callback){
             param[key] = config[key];
         }
     }
-    Capture(param, callback);
+
+    child = exec('which phantomjs', function(err, phantomPath, stderr){
+        if(!err){
+            phantomPath = phantomPath.replace('\n', '', phantomPath);
+            Capture(param, callback, phantomPath);
+        }else{
+            util.log(err);
+            util.log(stderr);
+        }
+    });
+
 }
 
 module.exports = init;
